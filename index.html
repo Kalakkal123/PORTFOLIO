@@ -1,309 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Portfolio — Merged Styles</title>
-  <meta name="description" content="A dark-mode portfolio combining developer, agency, and creative visual styles. Replace images and links with your own assets." />
-  <style>
-    /* ====== Root / Theme ====== */
-    :root{
-      --bg:#0b0b0c;
-      --panel:#0f1113;
-      --muted:#9aa3ad;
-      --text:#e8eef2;
-      --accent:#9b59ff; /* default purple/pink */
-      --glass: rgba(255,255,255,0.03);
-      --card-shadow: 0 6px 24px rgba(2,6,23,0.6);
-      --radius: 12px;
-      --monos: 'SFMono-Regular', Consolas, Monaco, monospace;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    /* Accent palettes (applied with body.accent-*) */
-    body.accent-warm { --accent: #ff6b35; }
-    body.accent-neon { --accent: #00ff9c; }
-    body.accent-eclipse { --accent: linear-gradient(90deg,#7b1fff,#ff2aa8); }
-    body.accent-deep { --accent: #6a4cff; }
-    body.accent-cinematic { --accent: #3ea0ff; }
-
-    /* ====== Reset ====== */
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.02), transparent), var(--bg); color:var(--text);}
-    a{color:inherit;text-decoration:none}
-
-    /* ====== Layout ====== */
-    .wrap{max-width:1120px;margin:28px auto;padding:28px;}
-    header{display:flex;gap:18px;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:16px;align-items:center}
-    .avatar{width:72px;height:72px;border-radius:999px;overflow:hidden;flex:0 0 72px;background:linear-gradient(135deg,#111,rgba(255,255,255,0.02));display:grid;place-items:center;border:3px solid rgba(255,255,255,0.04)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    .who h1{margin:0;font-size:20px;letter-spacing:-0.2px}
-    .who p{margin:2px 0 0;font-size:13px;color:var(--muted)}
-
-    .actions{display:flex;gap:10px;align-items:center}
-    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),rgba(255,255,255,0.02));color:#081019;border:none}
-
-    /* ====== Hero ====== */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;margin-top:28px}
-    .intro{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:28px;border-radius:14px;box-shadow:var(--card-shadow)}
-    .intro h2{margin:0 0 10px;font-size:28px}
-    .intro p{margin:0 0 18px;color:var(--muted);line-height:1.5}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600;font-size:13px}
-
-    /* Right column hero preview */
-    .hero-preview{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:12px;height:100%;display:flex;flex-direction:column;gap:12px}
-    .preview-image{background:linear-gradient(90deg, rgba(0,0,0,0.2), rgba(255,255,255,0.02));border-radius:10px;height:220px;display:grid;place-items:center;overflow:hidden}
-    .preview-image img{width:100%;height:100%;object-fit:cover}
-    .stats{display:flex;gap:12px;justify-content:space-between}
-    .stat{flex:1;background:var(--glass);padding:12px;border-radius:10px;text-align:center}
-    .stat b{display:block;font-size:18px}
-    .stat small{color:var(--muted)}
-
-    /* ====== Projects Grid ====== */
-    .section{margin-top:26px}
-    .section h3{margin:0 0 14px}
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);cursor:pointer}
-    .card .thumb{height:170px;border-radius:10px;overflow:hidden;display:block}
-    .card img{width:100%;height:100%;object-fit:cover;display:block}
-    .card h4{margin:10px 0 6px}
-    .card p{margin:0;color:var(--muted);font-size:13px}
-    .card .labels{display:flex;gap:8px;margin-top:10px}
-    .label{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.02);border-radius:999px}
-
-    /* ====== Services / About ====== */
-    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
-    .services .item{background:var(--glass);padding:16px;border-radius:10px;margin-bottom:10px}
-
-    /* ====== Footer ====== */
-    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);display:flex;justify-content:space-between;align-items:center}
-
-    /* ====== Accent details ====== */
-    .accent-pill{display:inline-block;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg,var(--accent),rgba(255,255,255,0.02));color:#071026;font-weight:700}
-
-    /* ====== Modal ====== */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85));z-index:60}
-    .modal.open{display:flex}
-    .modal-card{width:min(980px,94%);background:#071018;border-radius:12px;padding:18px}
-    .modal-card img{width:100%;height:480px;object-fit:cover;border-radius:8px}
-    .modal-meta{display:flex;justify-content:space-between;margin-top:12px}
-
-    /* ====== Small screens ====== */
-    @media (max-width:940px){
-      .hero{grid-template-columns:1fr}
-      .projects{grid-template-columns:repeat(2,1fr)}
-      .grid-2{grid-template-columns:1fr}
-      .avatar{width:56px;height:56px}
-    }
-    @media (max-width:560px){
-      .projects{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T Karthikeyan | Developer Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/theme.js"></script>
+  <script defer src="assets/js/modal.js"></script>
 </head>
-<body class="accent-eclipse">
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="avatar"><img src="project1.jpg" alt="your avatar (replace)" onerror="this.style.filter='grayscale(40%)';"/></div>
-        <div class="who">
-          <h1>Hi 👋 I’m <span class="accent-pill">T Karthikeyan</span></h1>
-          <p>Designer • Developer • Creator — I build web experiences, visual stories, and product-grade sites.</p>
-        </div>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">T Karthikeyan<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="themeToggle" title="Toggle Dark/Light">🌓</button>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <header class="hero">
+    <div class="hero-left">
+      <h1>Hey 👋, I'm <span class="highlight">T Karthikeyan</span></h1>
+      <p>A passionate developer and creator who builds <strong>interactive web experiences</strong>, <strong>ESP32-based smart systems</strong>, and <strong>2D games</strong>.</p>
+      <div class="hero-buttons">
+        <a href="projects.html" class="btn primary">View Projects</a>
+        <a href="contact.html" class="btn">Got a Project?</a>
       </div>
-      <div class="actions">
-        <button class="btn" onclick="downloadHTML()">Download</button>
-        <a class="btn primary" href="#contact">Got a project?</a>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="intro">
-        <h2>Selected works — web & visual design</h2>
-        <p>Blending minimal dev blogs, agency neon, cinematic visuals and modern product portfolios. Click any project card to view details. Use the theme toggles below to try different moods (developer, agency, cinematic, neon, warm).</p>
-        <div class="chips">
-          <span class="chip">Dark-mode native</span>
-          <span class="chip">Responsive</span>
-          <span class="chip">Performance-minded</span>
-          <span class="chip">SEO-ready</span>
-        </div>
-
-        <div style="margin-top:16px;display:flex;gap:8px;align-items:center">
-          <small style="color:var(--muted)">Theme:</small>
-          <button class="btn" onclick="setAccent('eclipse')">Developer (purple)</button>
-          <button class="btn" onclick="setAccent('warm')">Professional (orange)</button>
-          <button class="btn" onclick="setAccent('neon')">Agency (neon)</button>
-          <button class="btn" onclick="setAccent('cinematic')">Cinematic (blue)</button>
-          <button class="btn" onclick="setAccent('deep')">Metaverse (deep)</button>
-        </div>
-      </div>
-
-      <aside class="hero-preview">
-        <div class="preview-image"><img src="project2.jpg" alt="hero preview"/></div>
-        <div class="stats">
-          <div class="stat"><b>120+</b><small>Projects Delivered</small></div>
-          <div class="stat"><b>10y</b><small>Experience (equivalent)</small></div>
-          <div class="stat"><b>124k</b><small>Views / Impressions</small></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section">
-      <h3>Featured projects</h3>
-      <div class="projects" id="projects">
-        <!-- Replace the src and data-link attributes below with your own images and target URLs -->
-        <div class="card" data-title="Developer Blog" data-desc="Text-first technical blog with transparent metrics and deep posts." data-link="https://example.com" onclick="openModal(this)">
-          <div class="thumb"><img src="project1.jpg" alt="Project 1"/></div>
-          <h4>Karthikeyan — Developer Blog</h4>
-          <p>Minimal dark blog, long-form technical posts, open dashboard and social proof.</p>
-          <div class="labels"><span class="label">Blog</span><span class="label">Technical</span></div>
-        </div>
-
-        <div class="card" data-title="Software Portfolio" data-desc="Professional dev portfolio with CTAs, skills matrix and quantified results." data-link="https://example2.com" onclick="openModal(this)">
-          <div class="thumb"><img src="project2.jpg" alt="Project 2"/></div>
-          <h4>Karthi — Dev Portfolio</h4>
-          <p>Clear CTAs, resume download, and skill badges for recruiters.</p>
-          <div class="labels"><span class="label">Portfolio</span><span class="label">Resume</span></div>
-        </div>
-
-        <div class="card" data-title="Tech Agency" data-desc="Futuristic agency landing with neon accents and AI positioning." data-link="https://example3.com" onclick="openModal(this)">
-          <div class="thumb"><img src="project3.jpg" alt="Project 3"/></div>
-          <h4>TechNova — Agency</h4>
-          <p>Immersive hero, neon accents, AI & IoT storytelling and big stats for trust.</p>
-          <div class="labels"><span class="label">Agency</span><span class="label">AI</span></div>
-        </div>
-
-        <div class="card" data-title="Web3 / Metaverse" data-desc="Specialized Web3/Metaverse agency site with strong client logos and purple gradients." data-link="https://example4.com" onclick="openModal(this)">
-          <div class="thumb"><img src="project4.jpg" alt="Project 4"/></div>
-          <h4>Highly Charged — Web3</h4>
-          <p>Purple/neon theme, service pillars, and enterprise-level social proof.</p>
-          <div class="labels"><span class="label">Web3</span><span class="label">Metaverse</span></div>
-        </div>
-
-        <div class="card" data-title="Videographer" data-desc="Cinematic portfolio with hero stills and service breakdown for video production." data-link="https://example5.com" onclick="openModal(this)">
-          <div class="thumb"><img src="project5.jpg" alt="Project 5"/></div>
-          <h4>Videographer's Portfolio</h4>
-          <p>Cinematic hero, motion graphics, and service CTAs for video clients.</p>
-          <div class="labels"><span class="label">Creative</span><span class="label">Video</span></div>
-        </div>
-
-      </div>
-    </section>
-
-    <div class="grid-2">
-      <div>
-        <section class="section services">
-          <h3>Services & specialties</h3>
-          <div class="item"><strong>Web Design & Frontend</strong><div style="color:var(--muted);margin-top:6px">React, HTML5, CSS, Tailwind, Accessibility-first, perf-optimized builds.</div></div>
-          <div class="item"><strong>Brand & Visual Direction</strong><div style="color:var(--muted);margin-top:6px">Cinematic hero design, color systems, and motion for storytelling.</div></div>
-          <div class="item"><strong>Product & Agency</strong><div style="color:var(--muted);margin-top:6px">AI-enabled landing pages, Web3 concept prototypes, and B2B pitch sites.</div></div>
-        </section>
-      </div>
-
-      <aside>
-        <section class="section">
-          <h3>Contact</h3>
-          <p style="color:var(--muted)">I accept freelance work and full-time opportunities. Drop a message or link to your brief.</p>
-          <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
-            <a class="btn" href="#" id="emailLink">Email — replace me</a>
-            <a class="btn" id="resumeLink" href="#">Resume</a>
-            <a class="btn" href="#contact">Schedule</a>
-          </div>
-        </section>
-
-        <section class="section" style="margin-top:10px">
-          <h3>Quick skills</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
-            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">React</span><span class="chip">Figma</span><span class="chip">Three.js</span>
-          </div>
-        </section>
-      </aside>
     </div>
 
-    <footer>
-      <div>© <span id="year"></span> Your Name — Built with a blend of developer, agency & cinematic styles.</div>
-      <div style="color:var(--muted)">Replace images in the <code>projectX.jpg</code> placeholders and update <code>data-link</code> values.</div>
-    </footer>
-  </div>
+    <div class="hero-right">
+      <img src="https://lh3.googleusercontent.com/a/ACg8ocLbDPDUnQYDOtdBqZA9QkrBUJyUS9nNH-05onmsCR12afJl_18B=s360-c-no" alt="T Karthikeyan" class="profile-pic" />
+    </div>
+  </header>
 
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-card">
-      <img id="modalImg" src="" alt="project large" />
-      <div class="modal-meta">
-        <div>
-          <h3 id="modalTitle"></h3>
-          <p id="modalDesc" style="color:var(--muted);margin:6px 0 0"></p>
+  <!-- ===== SKILLS ===== -->
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skill-grid">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Firebase</span>
+      <span>ESP32</span>
+      <span>Arduino</span>
+      <span>Python</span>
+      <span>C++</span>
+      <span>Tailwind CSS</span>
+      <span>GitHub</span>
+      <span>Web Design</span>
+      <span>2D Game Dev</span>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section class="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+        <img src="assets/img/project1.jpg" alt="ASSASSIN.IN" />
+        <div class="project-info">
+          <h3>ASSASSIN.IN</h3>
+          <p>A futuristic styled landing page and UI experiment blending dark neon tones and sharp typography.</p>
+          <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank" class="btn primary">View Website</a>
         </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <a id="modalLink" class="btn primary" href="#" target="_blank">Open project</a>
-          <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <img src="assets/img/project2.jpg" alt="Flappy Bird" />
+        <div class="project-info">
+          <h3>FLAPPY BIRD</h3>
+          <p>A browser-based 2D game built with JavaScript and canvas physics — fun, minimal, and challenging.</p>
+          <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank" class="btn primary">Play Game</a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+        <img src="assets/img/project3.jpg" alt="TAM ENG" />
+        <div class="project-info">
+          <h3>TAM ENG</h3>
+          <p>A professional educational site for Tamil Engineering content — clear layout, responsive design.</p>
+          <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank" class="btn primary">Visit Site</a>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    // small utilities: theme / accent
-    function setAccent(name){
-      document.body.classList.remove('accent-warm','accent-neon','accent-eclipse','accent-deep','accent-cinematic');
-      switch(name){
-        case 'warm': document.body.classList.add('accent-warm'); break;
-        case 'neon': document.body.classList.add('accent-neon'); break;
-        case 'deep': document.body.classList.add('accent-deep'); break;
-        case 'cinematic': document.body.classList.add('accent-cinematic'); break;
-        default: document.body.classList.add('accent-eclipse');
-      }
-    }
+    <div class="view-more">
+      <a href="projects.html" class="btn">See More Projects →</a>
+    </div>
+  </section>
 
-    // open modal with project data
-    function openModal(card){
-      const img = card.querySelector('img').src;
-      const title = card.dataset.title || 'Project';
-      const desc = card.dataset.desc || '';
-      const link = card.dataset.link || '#';
-      document.getElementById('modalImg').src = img;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalDesc').textContent = desc;
-      const ml = document.getElementById('modalLink'); ml.href = link;
-      document.getElementById('modal').classList.add('open');
-    }
-    function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-    document.getElementById('modal').addEventListener('click', e => { if(e.target.id === 'modal') closeModal(); });
+  <!-- ===== ABOUT PREVIEW ===== -->
+  <section class="about-preview">
+    <h2>About Me</h2>
+    <p>I'm a developer who loves blending creativity and technology — from making **interactive games** to **ESP32 IoT projects**. I design and build fast, modern, and aesthetic digital experiences.</p>
+    <a href="about.html" class="btn">Learn More</a>
+  </section>
 
-    // fill year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ===== CONTACT PREVIEW ===== -->
+  <section class="contact-preview">
+    <h2>Let’s Work Together</h2>
+    <p>Want to collaborate or need a custom project built? Reach out to me below!</p>
+    <a href="contact.html" class="btn primary">Contact Me</a>
+  </section>
 
-    // simple download of current HTML (self-contained)
-    function downloadHTML(){
-      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'portfolio.html'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    }
-
-    // small accessibility: keyboard close modal
-    document.addEventListener('keydown', e => {
-      if(e.key === 'Escape') closeModal();
-    });
-
-    // If you want to programmatically update cards with your links/images, here's an example:
-    /*
-    const mapping = [
-      {img:'url1.jpg', link:'https://your-site.com', title:'Dev Blog', desc:'...'},
-      // ... up to 5
-    ];
-    document.querySelectorAll('#projects .card').forEach((c,i)=>{
-      if(mapping[i]){
-        c.querySelector('img').src = mapping[i].img;
-        c.dataset.link = mapping[i].link;
-        c.dataset.title = mapping[i].title;
-        c.dataset.desc = mapping[i].desc;
-      }
-    });
-    */
-  </script>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© <span id="year"></span> T Karthikeyan. Built with 💜 passion and code.</p>
+  </footer>
 </body>
 </html>
