@@ -7,8 +7,179 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/theme.js"></script>
+  <style>
+    /* ===== ABOUT PAGE STYLES ===== */
+    body {
+      background: radial-gradient(circle at center, rgba(0,0,0,0.8) 10%, #05010a 100%), 
+      url('https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_14_52%20PM.png');
+      background-size: cover;
+      background-position: center;
+      color: #eaeaea;
+      overflow-x: hidden;
+    }
+
+    .about-wrapper {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-photo {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .about-photo img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 4px solid #9b59ff;
+      box-shadow: 0 0 30px rgba(155, 89, 255, 0.4);
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .about-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .about-text {
+      flex: 1 1 600px;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(155, 89, 255, 0.2);
+    }
+
+    .about-text h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-text p {
+      color: #c9d2de;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Skills section */
+    .skills-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .skills-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #b37aff, #00e0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skills-grid span {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    .skills-grid span:hover {
+      background: linear-gradient(90deg, #9b59ff, #00e0ff);
+      color: #0a0115;
+      transform: translateY(-3px);
+    }
+
+    /* Stats */
+    .stats {
+      max-width: 1000px;
+      margin: 80px auto 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(155, 89, 255, 0.2);
+      transition: 0.3s;
+      min-width: 180px;
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(155, 89, 255, 0.4);
+    }
+
+    .stat h3 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    .stat p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      margin: 80px auto;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      color: #0a0115;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      filter: brightness(1.2);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-<body class="light-gradient">
+<body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">T Karthikeyan<span>.</span></div>
@@ -21,89 +192,45 @@
     <button id="themeToggle">🌓</button>
   </nav>
 
-  <!-- About Hero -->
-  <section class="about-hero">
+  <!-- About Section -->
+  <section class="about-wrapper">
     <div class="about-photo">
-      <img src="https://lh3.googleusercontent.com/a/ACg8ocLbDPDUnQYDOtdBqZA9QkrBUJyUS9nNH-05onmsCR12afJl_18B=s360-c-no" alt="T Karthikeyan" />
+      <img src="https://lh3.googleusercontent.com/a/ACg8ocLbDPDUnQYDOtdBqZA9QkrBUJyUS9nNH-05onmsCR12afJl_18B=s360-c-no" alt="T Karthikeyan">
     </div>
-    <div class="about-intro">
-      <h1>Hi, I'm <span class="highlight">T Karthikeyan</span> 👋</h1>
-      <p>A passionate <b>developer</b>, <b>designer</b>, and <b>tech enthusiast</b> from India 🇮🇳.  
-      I love turning ideas into digital experiences — whether it’s building interactive <b>websites</b>, designing <b>IoT systems</b> with ESP32, or developing <b>games</b> that make people smile.</p>
-      <p>I’ve been working with web technologies and electronics for years, constantly experimenting, learning, and shipping projects.  
-      My journey started with curiosity and evolved into a drive to create things that are simple, smart, and fun to use.</p>
 
-      <div class="facts">
-        <div><strong>💻 25+</strong><span>Websites Built</span></div>
-        <div><strong>⚡ 10+</strong><span>ESP32 Projects</span></div>
-        <div><strong>🎮 15+</strong><span>Games Created</span></div>
-        <div><strong>🧠 Infinite</strong><span>Ideas & Coffee ☕</span></div>
-      </div>
+    <div class="about-text">
+      <h1>Hi, I’m T Karthikeyan 👋</h1>
+      <p>I’m a developer, designer, and maker who builds creative digital experiences — from <b>interactive web games</b> to <b>ESP32-powered systems</b>.  
+      My goal is to blend creativity and engineering into simple, stunning experiences that work fast and look futuristic.</p>
+
+      <p>Whether I’m coding a site, designing an interface, or crafting a game, I’m always chasing one thing: the <b>perfect fusion of logic and vibe.</b></p>
     </div>
   </section>
 
   <!-- Skills -->
   <section class="skills-section">
-    <h2>Technical Arsenal ⚙️</h2>
-    <div class="skills-container">
-      <span>HTML5</span><span>CSS3</span><span>JavaScript (ES6+)</span><span>React</span>
-      <span>Node.js</span><span>Firebase</span><span>ESP32</span><span>Arduino</span>
-      <span>IoT Systems</span><span>C++</span><span>Python</span><span>Tailwind CSS</span>
-      <span>WebSockets</span><span>APIs</span><span>Git & GitHub</span><span>Linux</span>
-      <span>UI/UX Design</span><span>Game Design</span><span>3D Concepts</span><span>Creative Coding</span>
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Firebase</span>
+      <span>ESP32</span><span>Arduino</span><span>Python</span><span>C++</span>
+      <span>Web Design</span><span>2D Game Dev</span><span>GitHub</span><span>UI Development</span>
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="timeline">
-    <h2>My Journey 🛠️</h2>
-    <div class="timeline-items">
-      <div class="timeline-item">
-        <span class="year">2020</span>
-        <div class="content">
-          <h3>Started with Arduino</h3>
-          <p>Built my first LED-based projects and learned microcontroller basics — it sparked my love for hardware.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <span class="year">2022</span>
-        <div class="content">
-          <h3>Entered Web Development</h3>
-          <p>Created responsive websites, experimented with Firebase, and started merging IoT with web dashboards.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <span class="year">2023</span>
-        <div class="content">
-          <h3>Discovered Game Development</h3>
-          <p>Developed several 2D browser games like <b>Flappy Bird</b> and <b>physics-based car sims</b>.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <span class="year">2024</span>
-        <div class="content">
-          <h3>ESP32 Smart Systems</h3>
-          <p>Built offline WiFi chat servers, joystick controllers, and IoT indicators — all powered by ESP32.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <span class="year">2025</span>
-        <div class="content">
-          <h3>Expanding into AI & Web3</h3>
-          <p>Currently exploring AI integrations with ESP32 and creating futuristic interfaces with LM Studio + JS.</p>
-        </div>
-      </div>
-    </div>
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat"><h3>20+</h3><p>Web Projects</p></div>
+    <div class="stat"><h3>10+</h3><p>ESP32 Builds</p></div>
+    <div class="stat"><h3>12+</h3><p>Games & Simulations</p></div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2>Let’s Build Something Awesome Together 🚀</h2>
-    <a href="projects.html" class="btn primary">Explore My Projects</a>
+    <a href="projects.html">View My Projects →</a>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> T Karthikeyan | Built with passion 💜</p>
+    <p>© <span id="year"></span> T Karthikeyan | Built with 💜 and logic ⚡</p>
   </footer>
 </body>
 </html>
