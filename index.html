@@ -7,10 +7,245 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/theme.js"></script>
-  <script defer src="assets/js/modal.js"></script>
+
+  <style>
+    /* ===== HOME PAGE STYLES ===== */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.8) 10%, #05010a 100%), 
+      url('https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_14_52%20PM.png');
+      background-size: cover;
+      background-position: center;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .logo span {
+      color: #9b59ff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #bbb;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #9b59ff;
+    }
+
+    #themeToggle {
+      border: none;
+      background: transparent;
+      color: #9b59ff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.5), rgba(5,0,10,0.9));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .hero h2 {
+      font-size: 1.3rem;
+      color: #c9d2de;
+      margin-bottom: 26px;
+      animation: glowText 4s ease-in-out infinite alternate;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #b8c1d1;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #9b59ff; }
+      to { text-shadow: 0 0 20px #00f5ff; }
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      color: #0a0115;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      filter: brightness(1.2);
+      transform: translateY(-4px);
+    }
+
+    /* Particle Animation */
+    .particles {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #9b59ff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 0; }
+      20% { opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    /* Mini Projects Preview */
+    .preview {
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .preview h2 {
+      font-size: 2rem;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .preview-card {
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(155, 89, 255, 0.2);
+      transition: 0.3s;
+    }
+
+    .preview-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(155, 89, 255, 0.4);
+    }
+
+    .preview-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .preview-card h3 {
+      margin: 14px 0 8px;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .preview-card p {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <!-- ===== NAVBAR ===== -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">T Karthikeyan<span>.</span></div>
     <ul class="nav-links">
@@ -19,102 +254,65 @@
       <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button id="themeToggle" title="Toggle Dark/Light">🌓</button>
+    <button id="themeToggle">🌓</button>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <header class="hero">
-    <div class="hero-left">
-      <h1>Hey 👋, I'm <span class="highlight">T Karthikeyan</span></h1>
-      <p>A passionate developer and creator who builds <strong>interactive web experiences</strong>, <strong>ESP32-based smart systems</strong>, and <strong>2D games</strong>.</p>
-      <div class="hero-buttons">
-        <a href="projects.html" class="btn primary">View Projects</a>
-        <a href="contact.html" class="btn">Got a Project?</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <h1>Hey, I’m <span class="highlight">T Karthikeyan</span></h1>
+      <h2>Developer • Creator • Innovator</h2>
+      <p>I build interactive web experiences, ESP32 projects, and 2D games — blending logic, creativity, and futuristic design.</p>
+      <div class="btn-row">
+        <a href="about.html" class="btn">About Me</a>
+        <a href="projects.html" class="btn">Projects</a>
+        <a href="contact.html" class="btn">Contact</a>
       </div>
-    </div>
-
-    <div class="hero-right">
-      <img src="https://lh3.googleusercontent.com/a/ACg8ocLbDPDUnQYDOtdBqZA9QkrBUJyUS9nNH-05onmsCR12afJl_18B=s360-c-no" alt="T Karthikeyan" class="profile-pic" />
-    </div>
-  </header>
-
-  <!-- ===== SKILLS ===== -->
-  <section class="skills">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>React</span>
-      <span>Firebase</span>
-      <span>ESP32</span>
-      <span>Arduino</span>
-      <span>Python</span>
-      <span>C++</span>
-      <span>Tailwind CSS</span>
-      <span>GitHub</span>
-      <span>Web Design</span>
-      <span>2D Game Dev</span>
     </div>
   </section>
 
-  <!-- ===== FEATURED PROJECTS ===== -->
-  <section class="projects">
+  <!-- Project Preview -->
+  <section class="preview">
     <h2>Featured Projects</h2>
-    <div class="project-grid">
-      <!-- PROJECT 1 -->
-      <div class="project-card">
-        <img src="assets/img/project1.jpg" alt="ASSASSIN.IN" />
-        <div class="project-info">
-          <h3>ASSASSIN.IN</h3>
-          <p>A futuristic styled landing page and UI experiment blending dark neon tones and sharp typography.</p>
-          <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank" class="btn primary">View Website</a>
-        </div>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_25_02%20PM.png" alt="ASSASSIN.IN">
+        <h3>ASSASSIN.IN</h3>
+        <p>A dark, fun cyberpunk site — “order your assassin” parody page.</p>
       </div>
 
-      <!-- PROJECT 2 -->
-      <div class="project-card">
-        <img src="assets/img/project2.jpg" alt="Flappy Bird" />
-        <div class="project-info">
-          <h3>FLAPPY BIRD</h3>
-          <p>A browser-based 2D game built with JavaScript and canvas physics — fun, minimal, and challenging.</p>
-          <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank" class="btn primary">Play Game</a>
-        </div>
+      <div class="preview-card">
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_26_12%20PM.png" alt="Flappy Bird">
+        <h3>Flappy Bird</h3>
+        <p>A web recreation of the classic 2D game built with JavaScript Canvas.</p>
       </div>
 
-      <!-- PROJECT 3 -->
-      <div class="project-card">
-        <img src="assets/img/project3.jpg" alt="TAM ENG" />
-        <div class="project-info">
-          <h3>TAM ENG</h3>
-          <p>A professional educational site for Tamil Engineering content — clear layout, responsive design.</p>
-          <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank" class="btn primary">Visit Site</a>
-        </div>
+      <div class="preview-card">
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_27_08%20PM.png" alt="TAM ENG">
+        <h3>TAM ENG</h3>
+        <p>A Tamil-to-English translation app — simple, clear, fast.</p>
       </div>
     </div>
-
-    <div class="view-more">
-      <a href="projects.html" class="btn">See More Projects →</a>
-    </div>
   </section>
 
-  <!-- ===== ABOUT PREVIEW ===== -->
-  <section class="about-preview">
-    <h2>About Me</h2>
-    <p>I'm a developer who loves blending creativity and technology — from making **interactive games** to **ESP32 IoT projects**. I design and build fast, modern, and aesthetic digital experiences.</p>
-    <a href="about.html" class="btn">Learn More</a>
-  </section>
-
-  <!-- ===== CONTACT PREVIEW ===== -->
-  <section class="contact-preview">
-    <h2>Let’s Work Together</h2>
-    <p>Want to collaborate or need a custom project built? Reach out to me below!</p>
-    <a href="contact.html" class="btn primary">Contact Me</a>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© <span id="year"></span> T Karthikeyan. Built with 💜 passion and code.</p>
+    <p>© <span id="year"></span> T Karthikeyan | Designed with 💜 & ⚡</p>
   </footer>
+
+  <script>
+    // === Particle Animation ===
+    const container = document.getElementById('particles');
+    const total = 25;
+    for (let i = 0; i < total; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = 6 + Math.random() * 8 + 's';
+      p.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(p);
+    }
+  </script>
 </body>
 </html>
