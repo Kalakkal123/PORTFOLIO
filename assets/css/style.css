@@ -345,8 +345,63 @@ footer {
   color: #fff;
   cursor: pointer;
 }
+
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
+
+
+/* =============== */
+
+body.light-gradient {
+  background: radial-gradient(circle at top left, #f0e9ff 0%, #0b0b0c 80%);
+  color: #eaeaea;
+}
+.contact-section, .about-main {
+  padding: 60px 10%;
+  text-align: center;
+}
+.about-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  margin-bottom: 20px;
+}
+.skill-list {
+  list-style: none;
+  margin: 16px 0;
+}
+.skill-list li {
+  margin-bottom: 6px;
+}
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+.stats-grid div {
+  background: rgba(255,255,255,0.05);
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.contact-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.contact-extra ul {
+  list-style: none;
+  padding: 0;
+}
+.contact-extra li {
+  margin: 6px 0;
+  color: var(--muted);
+}
+
 
