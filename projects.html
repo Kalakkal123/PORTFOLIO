@@ -7,9 +7,158 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/theme.js"></script>
-  <script defer src="assets/js/modal.js"></script>
+
+  <style>
+    /* ===== PROJECT PAGE ===== */
+    body {
+      background: radial-gradient(circle at center, rgba(0,0,0,0.8) 10%, #05010a 100%), 
+      url('https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_14_52%20PM.png');
+      background-size: cover;
+      background-position: center;
+      color: #eaeaea;
+      overflow-x: hidden;
+    }
+
+    .projects-wrapper {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .projects-header h1 {
+      font-size: 2.4rem;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .projects-header p {
+      color: #c9d2de;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(155, 89, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 40px rgba(155, 89, 255, 0.35);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .project-info h3 {
+      font-size: 1.3rem;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      color: #b8c1d1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .project-info a {
+      display: inline-block;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      color: #0a0115;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .project-info a:hover {
+      filter: brightness(1.2);
+      transform: translateY(-3px);
+    }
+
+    /* Fade animation */
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .project-card {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      margin: 80px auto;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      color: #0a0115;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      filter: brightness(1.2);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">T Karthikeyan<span>.</span></div>
     <ul class="nav-links">
@@ -21,45 +170,53 @@
     <button id="themeToggle">🌓</button>
   </nav>
 
-  <section class="projects-full">
-    <h1>All Projects</h1>
-    <p class="subtitle">A showcase of my creations — from games to web apps to IoT projects.</p>
+  <!-- Projects -->
+  <section class="projects-wrapper">
+    <div class="projects-header">
+      <h1>My Projects 🚀</h1>
+      <p>Here’s a look at some of the fun, creative, and futuristic projects I’ve built — ranging from web experiences to games and translators.</p>
+    </div>
 
     <div class="project-grid">
-      <!-- Web Projects -->
+      <!-- ASSASSIN.IN -->
       <div class="project-card">
-        <img src="assets/img/project1.jpg" alt="ASSASSIN.IN" />
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_25_02%20PM.png" alt="ASSASSIN.IN" />
         <div class="project-info">
           <h3>ASSASSIN.IN</h3>
-          <p>A dark futuristic web landing with neon accents and smooth animations.</p>
-          <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank" class="btn primary">Visit</a>
+          <p>A dark-fun concept website where users can “hire” assassins — built with pure HTML, CSS & JS, styled like a cyberpunk web app.</p>
+          <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank">Visit Site</a>
         </div>
       </div>
 
+      <!-- FLAPPY BIRD -->
       <div class="project-card">
-        <img src="assets/img/project2.jpg" alt="Flappy Bird" />
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_26_12%20PM.png" alt="Flappy Bird" />
         <div class="project-info">
-          <h3>Flappy Bird</h3>
-          <p>Classic Flappy Bird built using HTML canvas and JavaScript physics.</p>
-          <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank" class="btn primary">Play</a>
+          <h3>FLAPPY BIRD</h3>
+          <p>A 2D browser game recreated from scratch using JavaScript Canvas — smooth controls, addictive gameplay, and perfect nostalgia.</p>
+          <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank">Play Game</a>
         </div>
       </div>
 
+      <!-- TAM ENG -->
       <div class="project-card">
-        <img src="assets/img/project3.jpg" alt="TAM ENG" />
+        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_27_08%20PM.png" alt="TAM ENG" />
         <div class="project-info">
           <h3>TAM ENG</h3>
-          <p>A clean educational website for Tamil Engineering content.</p>
-          <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank" class="btn primary">Open</a>
+          <p>A Tamil-to-English translator app designed for simplicity and clarity — translating text with clean UI and instant response.</p>
+          <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank">Try App</a>
         </div>
       </div>
-
-      <!-- Add more future projects here -->
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="cta">
+    <a href="contact.html">Get in Touch →</a>
+  </section>
+
   <footer>
-    <p>© <span id="year"></span> T Karthikeyan | View Source on <a href="https://github.com/kalakkal123" target="_blank">GitHub</a></p>
+    <p>© <span id="year"></span> T Karthikeyan | Built with ⚡ vision & 💜 passion</p>
   </footer>
 </body>
 </html>
