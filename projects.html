@@ -4,169 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | T Karthikeyan</title>
+
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/theme.js"></script>
 
   <style>
+    :root {
+      --bg: #0f1520;
+      --card: #131a26;
+      --card-soft: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --muted: #b3bdc9;
+      --accent1: #6d80f7;
+      --accent2: #59d2c5;
+      --radius: 16px;
+      --shadow: 0 12px 24px rgba(0,0,0,0.35);
+    }
+
     body {
       margin: 0;
-      background: radial-gradient(circle at center, rgba(0,0,0,0.85), #05010a),
-      url('https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_14_52%20PM.png');
-      background-size: cover;
-      background-position: center;
-      color: #eaeaea;
-      overflow-x: hidden;
-      position: relative;
+      background: var(--bg);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
     }
 
-    /* === Animated Energy Grid === */
-    canvas#energyCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.5;
-      filter: blur(0.3px);
-    }
-
-    .projects-wrapper {
-      max-width: 1200px;
-      margin: 120px auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .projects-header {
+    /* HEADER HERO */
+    .projects-hero {
+      padding: 150px 10% 80px;
       text-align: center;
-      margin-bottom: 60px;
     }
-
-    .projects-header h1 {
-      font-size: 2.4rem;
-      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+    .projects-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
     }
-
-    .projects-header p {
-      color: #c9d2de;
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 10px auto;
+    .projects-hero p {
+      color: var(--muted);
+      max-width: 750px;
+      margin: auto;
       line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    .project-grid {
+    /* PROJECT GRID */
+    .projects-wrapper {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 32px;
     }
 
     .project-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 16px;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 20px rgba(155, 89, 255, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(8px);
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+      position: relative;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 40px rgba(155, 89, 255, 0.35);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.45);
     }
 
     .project-card img {
       width: 100%;
-      height: 220px;
+      height: 210px;
       object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
     }
 
-    .project-card:hover img { transform: scale(1.05); }
-
-    .project-info {
-      padding: 20px;
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.35);
+    .project-content {
+      padding: 24px;
     }
 
-    .project-info h3 {
+    .project-content h3 {
+      margin: 0 0 10px;
       font-size: 1.3rem;
-      background: linear-gradient(90deg, #9b59ff, #00f5ff);
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
     }
 
-    .project-info p {
-      color: #b8c1d1;
+    .project-content p {
+      color: var(--muted);
+      line-height: 1.55;
       font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
-    .project-info a {
+    .project-content a {
       display: inline-block;
-      background: linear-gradient(90deg, #9b59ff, #00f5ff);
-      color: #0a0115;
-      padding: 10px 20px;
-      border-radius: 50px;
-      text-decoration: none;
+      padding: 10px 22px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #07121a;
       font-weight: 600;
-      transition: 0.3s;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.25s;
     }
 
-    .project-info a:hover {
-      filter: brightness(1.2);
+    .project-content a:hover {
       transform: translateY(-3px);
+      filter: brightness(1.15);
     }
 
-    @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    .project-card { animation: fadeUp 0.8s ease forwards; }
-
+    /* CTA BUTTON */
     .cta {
       text-align: center;
-      margin: 80px auto;
+      padding: 80px 20px;
     }
-
     .cta a {
-      display: inline-block;
-      background: linear-gradient(90deg, #9b59ff, #00f5ff);
-      color: #0a0115;
       padding: 12px 30px;
-      border-radius: 50px;
-      text-decoration: none;
       font-weight: 700;
-      transition: 0.3s;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #07121a;
+      border-radius: 40px;
+      transition: 0.25s;
     }
-
     .cta a:hover {
-      filter: brightness(1.2);
       transform: translateY(-3px);
+      filter: brightness(1.15);
     }
 
     footer {
       text-align: center;
-      margin-top: 60px;
-      padding: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #aaa;
-      position: relative;
-      z-index: 2;
+      padding: 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    @media(max-width:900px){
+      .projects-hero h1 { font-size: 2.3rem; }
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="logo">T Karthikeyan<span>.</span></div>
@@ -179,43 +161,45 @@
     <button id="themeToggle">🌓</button>
   </nav>
 
-  <!-- Animated Energy Grid -->
-  <canvas id="energyCanvas"></canvas>
+  <!-- HERO -->
+  <section class="projects-hero">
+    <h1>My Projects</h1>
+    <p>Here’s everything I’ve built — from 2D games and smart ESP32 systems to modern UI experiments. Clean code, creative ideas, and modern aesthetics.</p>
+  </section>
 
+  <!-- PROJECTS GRID -->
   <section class="projects-wrapper">
-    <div class="projects-header">
-      <h1>My Projects ⚙️</h1>
-      <p>Explore my creations — from futuristic UIs to addictive 2D games and real-time IoT systems. Every line of code has a spark of imagination.</p>
-    </div>
 
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_25_02%20PM.png" alt="ASSASSIN.IN" />
-        <div class="project-info">
-          <h3>ASSASSIN.IN</h3>
-          <p>A dark-fun concept website where users can “hire” assassins — built with pure HTML, CSS & JS, styled like a cyberpunk web app.</p>
-          <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank">Visit Site</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_26_12%20PM.png" alt="Flappy Bird" />
-        <div class="project-info">
-          <h3>FLAPPY BIRD</h3>
-          <p>A 2D browser game recreated from scratch using JavaScript Canvas — smooth controls, addictive gameplay, and perfect nostalgia.</p>
-          <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank">Play Game</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_27_08%20PM.png" alt="TAM ENG" />
-        <div class="project-info">
-          <h3>TAM ENG</h3>
-          <p>A Tamil-to-English translator app designed for simplicity and clarity — translating text with clean UI and instant response.</p>
-          <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank">Try App</a>
-        </div>
+    <!-- 1 — Assassin -->
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_25_02%20PM.png" />
+      <div class="project-content">
+        <h3>ASSASSIN.IN</h3>
+        <p>A dark & fun concept website where users can “hire” assassins — pure HTML/CSS/JS with a clean cyber UI.</p>
+        <a href="https://kalakkal123.github.io/ASSASSIN.IN/" target="_blank">Visit Site</a>
       </div>
     </div>
+
+    <!-- 2 — Flappy Bird -->
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_26_12%20PM.png" />
+      <div class="project-content">
+        <h3>Flappy Bird</h3>
+        <p>A fully recreated 2D game using JavaScript Canvas — smooth physics, responsive gameplay, and classic nostalgia.</p>
+        <a href="https://kalakkal123.github.io/FLAPPY_BIRD/" target="_blank">Play Game</a>
+      </div>
+    </div>
+
+    <!-- 3 — Translator -->
+    <div class="project-card">
+      <img src="https://raw.githubusercontent.com/Kalakkal123/portfolio/refs/heads/main/ChatGPT%20Image%20Nov%209%2C%202025%2C%2003_27_08%20PM.png" />
+      <div class="project-content">
+        <h3>TAM ENG</h3>
+        <p>A Tamil-to-English translator web app — minimal UI with fast text processing and instant output.</p>
+        <a href="https://kalakkal123.github.io/TAM_ENG/" target="_blank">Try App</a>
+      </div>
+    </div>
+
   </section>
 
   <section class="cta">
@@ -223,58 +207,12 @@
   </section>
 
   <footer>
-    <p>© <span id="year"></span> T Karthikeyan | Built with ⚡ vision & 💜 passion</p>
+    <p>© <span id="year"></span> T Karthikeyan | Built with ⚡ & 💜</p>
   </footer>
 
   <script>
-    // === Energy Grid Animation ===
-    const canvas = document.getElementById('energyCanvas');
-    const ctx = canvas.getContext('2d');
-    let w, h, lines = [];
-
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-      lines = [];
-      for (let i = 0; i < 50; i++) {
-        lines.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          dx: (Math.random() - 0.5) * 0.7,
-          dy: (Math.random() - 0.5) * 0.7,
-          len: 80 + Math.random() * 120,
-          hue: 250 + Math.random() * 100
-        });
-      }
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function animate() {
-      ctx.clearRect(0, 0, w, h);
-      for (let l of lines) {
-        l.x += l.dx;
-        l.y += l.dy;
-        if (l.x < 0 || l.x > w || l.y < 0 || l.y > h) {
-          l.x = Math.random() * w;
-          l.y = Math.random() * h;
-        }
-
-        const grad = ctx.createLinearGradient(l.x, l.y, l.x + l.len, l.y + l.len);
-        grad.addColorStop(0, `hsla(${l.hue}, 100%, 70%, 0.0)`);
-        grad.addColorStop(0.5, `hsla(${l.hue}, 100%, 70%, 0.5)`);
-        grad.addColorStop(1, `hsla(${l.hue}, 100%, 70%, 0.0)`);
-
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(l.x, l.y);
-        ctx.lineTo(l.x + l.len, l.y + l.len);
-        ctx.stroke();
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
+    document.getElementById("year").innerText = new Date().getFullYear();
   </script>
+
 </body>
 </html>
