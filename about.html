@@ -2,33 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | T Karthikeyan</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&family=Manrope:wght@600&family=DM+Sans:wght@500&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #ffffff;
-      --soft: #f6f8fb;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #4f6cff;
-      --radius: 14px;
+      --bg: #0b0f1a;
+      --card: #12172a;
+      --accent: #7c7cff;
+      --accent2: #00e5ff;
+      --muted: #9aa4b2;
+      --border: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.05);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: radial-gradient(circle at top, #121b33, #05070d);
+      color: white;
+      font-family: Inter, sans-serif;
     }
 
     /* NAV */
-    .navbar {
+    nav {
       position: fixed;
       top: 0;
       width: 100%;
@@ -36,237 +37,208 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
+      background: rgba(10,12,20,0.7);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
-    .logo {
-      font-weight: 600;
-      font-size: 1.1rem;
+    nav h1 {
+      font-family: "Space Grotesk";
+      font-size: 1.3rem;
     }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 26px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
+    nav a {
       color: var(--muted);
+      text-decoration: none;
+      margin-left: 25px;
       font-size: 0.95rem;
     }
 
-    .nav-links a.active,
-    .nav-links a:hover {
-      color: var(--text);
+    nav a:hover {
+      color: white;
     }
 
     /* HERO */
-    .about-hero {
-      padding: 140px 10% 80px;
-      display: flex;
-      flex-wrap: wrap;
+    .hero {
+      padding: 160px 10% 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-      justify-content: center;
-      background: linear-gradient(to bottom, #f9fafb, #ffffff);
     }
 
-    .about-img img {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      background: white;
+    .hero h2 {
+      font-family: Poppins;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #7c7cff, #4ee1ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .about-content {
-      max-width: 600px;
-    }
-
-    .about-content h1 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .about-content p {
+    .hero p {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.8;
       font-size: 1.05rem;
-      margin-bottom: 14px;
     }
 
-    /* SECTION */
-    .section-title {
-      text-align: center;
-      margin: 90px 0 30px;
-      font-size: 2rem;
-      font-weight: 600;
+    .hero img {
+      width: 260px;
+      border-radius: 50%;
+      box-shadow: 0 0 80px rgba(124,124,255,0.3);
     }
 
-    /* SKILLS */
-    .skills-grid {
-      max-width: 950px;
-      margin: 0 auto 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+    /* CARDS */
+    .grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 25px;
+      padding: 80px 10%;
     }
 
-    .skills-grid span {
-      background: var(--soft);
+    .card {
+      background: linear-gradient(145deg, #11162a, #0b0f1a);
       border: 1px solid var(--border);
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      transition: 0.2s ease;
+      padding: 30px;
+      border-radius: 18px;
+      transition: 0.3s;
     }
 
-    .skills-grid span:hover {
-      transform: translateY(-2px);
-      background: #fff;
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      font-family: Manrope;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* STATS */
     .stats {
-      max-width: 900px;
-      margin: 60px auto;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .stat-box {
-      background: var(--soft);
-      border: 1px solid var(--border);
-      padding: 28px 34px;
-      border-radius: var(--radius);
+      gap: 40px;
+      padding: 80px 10%;
       text-align: center;
-      min-width: 180px;
     }
 
-    .stat-box h3 {
-      font-size: 2rem;
-      margin-bottom: 6px;
+    .stat h2 {
+      font-family: Space Grotesk;
+      font-size: 2.5rem;
+      color: var(--accent);
     }
 
-    .stat-box p {
+    .stat p {
       color: var(--muted);
-      margin: 0;
     }
 
     /* CTA */
     .cta {
       text-align: center;
-      margin: 90px 0;
+      padding: 100px 10%;
+      background: linear-gradient(120deg,#0b1020,#121a30);
+    }
+
+    .cta h2 {
+      font-family: Poppins;
+      font-size: 2.4rem;
     }
 
     .cta a {
-      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
       padding: 14px 36px;
-      border-radius: 30px;
-      border: 1px solid var(--border);
-      background: #111827;
-      color: white;
+      background: linear-gradient(90deg,#7c7cff,#4ee1ff);
+      color: black;
       font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .cta a:hover {
-      background: #000;
+      border-radius: 40px;
+      text-decoration: none;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      border-top: 1px solid var(--border);
+      padding: 40px;
       color: var(--muted);
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar">
-    <div class="logo">T Karthikeyan</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section class="about-hero">
-    <div class="about-img">
-      <img src="https://raw.githubusercontent.com/Kalakkal123/PORTFOLIO/refs/heads/main/file_00000000ab7c72069271469ca3aa9c04.png">
-    </div>
-
-    <div class="about-content">
-      <h1>Hi, I’m T Karthikeyan</h1>
-      <p>
-        I’m a developer focused on building clean, efficient digital products —
-        from modern websites to real-time ESP32 projects.
-      </p>
-      <p>
-        I enjoy solving real-world problems through simple, scalable design and
-        performance-focused development.
-      </p>
-    </div>
-  </section>
-
-  <h2 class="section-title">Skills</h2>
-  <div class="skills-grid">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>Firebase</span>
-    <span>ESP32</span>
-    <span>Arduino</span>
-    <span>Python</span>
-    <span>C++</span>
-    <span>UI Design</span>
-    <span>2D Games</span>
-    <span>GitHub</span>
-    <span>Real-Time Systems</span>
+<nav>
+  <h1>T Karthikeyan</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
   </div>
+</nav>
 
-  <h2 class="section-title">Experience</h2>
-  <div class="stats">
-    <div class="stat-box">
-      <h3>25+</h3>
-      <p>Web Projects</p>
-    </div>
-    <div class="stat-box">
-      <h3>15+</h3>
-      <p>ESP32 Builds</p>
-    </div>
-    <div class="stat-box">
-      <h3>10+</h3>
-      <p>Games & Tools</p>
-    </div>
+<section class="hero">
+  <div>
+    <h2>Building ideas into reality.</h2>
+    <p>
+      I’m a developer focused on building clean, modern and functional digital products.
+      From websites to ESP32 systems, I love working on things that actually solve problems.
+    </p>
   </div>
+  <img src="https://raw.githubusercontent.com/Kalakkal123/PORTFOLIO/refs/heads/main/file_00000000ab7c72069271469ca3aa9c04.png">
+</section>
 
-  <div class="cta">
-    <a href="projects.html">View My Projects →</a>
+<section class="grid">
+  <div class="card">
+    <h3>Frontend</h3>
+    <p>Modern UI, animations, responsive layouts and clean UX.</p>
   </div>
+  <div class="card">
+    <h3>Backend & Logic</h3>
+    <p>Firebase, APIs, real-time systems and automation logic.</p>
+  </div>
+  <div class="card">
+    <h3>Embedded Systems</h3>
+    <p>ESP32, sensors, automation and hardware integration.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>© <span id="year"></span> T Karthikeyan</p>
-  </footer>
+<section class="stats">
+  <div class="stat">
+    <h2>25+</h2>
+    <p>Projects</p>
+  </div>
+  <div class="stat">
+    <h2>15+</h2>
+    <p>ESP32 Builds</p>
+  </div>
+  <div class="stat">
+    <h2>10+</h2>
+    <p>Apps & Tools</p>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
-  </script>
+<section class="cta">
+  <h2>Want to see what I’ve built?</h2>
+  <a href="projects.html">View Projects</a>
+</section>
+
+<footer>
+  © <span id="year"></span> T Karthikeyan
+</footer>
+
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
 
 </body>
 </html>
