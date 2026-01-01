@@ -6,26 +6,35 @@
   <title>About | T Karthikeyan</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&family=Manrope:wght@600&family=DM+Sans:wght@500&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?
+  family=Inter:wght@300;400;600&
+  family=Poppins:wght@500;700&
+  family=Space+Grotesk:wght@600&
+  family=Manrope:wght@600&
+  family=DM+Sans:wght@500&
+  family=Outfit:wght@600&
+  family=Montserrat:wght@500&
+  family=Playfair+Display:wght@600
+  &display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f1a;
-      --card: #12172a;
+      --bg: #070b16;
+      --card: #0f1629;
       --accent: #7c7cff;
-      --accent2: #00e5ff;
+      --accent2: #4ee1ff;
+      --text: #e8eaf0;
       --muted: #9aa4b2;
       --border: rgba(255,255,255,0.08);
-      --glass: rgba(255,255,255,0.05);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #121b33, #05070d);
-      color: white;
       font-family: Inter, sans-serif;
+      background: radial-gradient(circle at top, #101933, #05070d);
+      color: var(--text);
     }
 
     /* NAV */
@@ -33,93 +42,101 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 10%;
+      padding: 22px 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(10px);
-      background: rgba(10,12,20,0.7);
+      background: rgba(10,12,20,0.75);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
     nav h1 {
-      font-family: "Space Grotesk";
-      font-size: 1.3rem;
+      font-family: "Playfair Display";
+      font-size: 1.4rem;
     }
 
     nav a {
+      font-family: Montserrat;
       color: var(--muted);
       text-decoration: none;
-      margin-left: 25px;
-      font-size: 0.95rem;
+      margin-left: 24px;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: white;
     }
 
     /* HERO */
     .hero {
-      padding: 160px 10% 120px;
+      padding: 170px 10% 120px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 1fr;
       gap: 80px;
       align-items: center;
     }
 
     .hero h2 {
-      font-family: Poppins;
-      font-size: 3rem;
-      margin-bottom: 15px;
-      background: linear-gradient(90deg, #7c7cff, #4ee1ff);
+      font-family: Space Grotesk;
+      font-size: clamp(2.8rem, 5vw, 3.5rem);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
     }
 
     .hero p {
+      font-family: DM Sans;
+      font-size: 1.1rem;
       color: var(--muted);
       line-height: 1.8;
-      font-size: 1.05rem;
+      max-width: 550px;
     }
 
     .hero img {
-      width: 260px;
+      width: 280px;
       border-radius: 50%;
-      box-shadow: 0 0 80px rgba(124,124,255,0.3);
+      box-shadow: 0 0 90px rgba(124,124,255,0.4);
+      animation: float 6s ease-in-out infinite;
     }
 
-    /* CARDS */
-    .grid {
-      max-width: 1100px;
-      margin: auto;
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* INFO BLOCKS */
+    .info {
+      padding: 100px 10%;
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-      gap: 25px;
-      padding: 80px 10%;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
-    .card {
-      background: linear-gradient(145deg, #11162a, #0b0f1a);
+    .info-card {
+      background: linear-gradient(145deg, #111a30, #0a0f1f);
       border: 1px solid var(--border);
-      padding: 30px;
       border-radius: 18px;
+      padding: 30px;
       transition: 0.3s;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
+    .info-card:hover {
+      transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
-    .card h3 {
-      font-family: Manrope;
-      margin-bottom: 10px;
+    .info-card h3 {
+      font-family: Space Grotesk;
+      margin-bottom: 12px;
     }
 
-    .card p {
+    .info-card p {
+      font-family: Manrope;
       color: var(--muted);
-      font-size: 0.95rem;
       line-height: 1.6;
     }
 
@@ -127,14 +144,14 @@
     .stats {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 60px;
       padding: 80px 10%;
       text-align: center;
     }
 
     .stat h2 {
-      font-family: Space Grotesk;
-      font-size: 2.5rem;
+      font-family: Outfit;
+      font-size: 2.6rem;
       color: var(--accent);
     }
 
@@ -145,8 +162,8 @@
     /* CTA */
     .cta {
       text-align: center;
-      padding: 100px 10%;
-      background: linear-gradient(120deg,#0b1020,#121a30);
+      padding: 110px 10%;
+      background: linear-gradient(120deg, #0b1020, #121a30);
     }
 
     .cta h2 {
@@ -157,12 +174,12 @@
     .cta a {
       display: inline-block;
       margin-top: 20px;
-      padding: 14px 36px;
-      background: linear-gradient(90deg,#7c7cff,#4ee1ff);
-      color: black;
-      font-weight: 600;
+      padding: 14px 40px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #000;
       border-radius: 40px;
       text-decoration: none;
+      font-weight: 600;
     }
 
     footer {
@@ -170,6 +187,14 @@
       padding: 40px;
       color: var(--muted);
       border-top: 1px solid var(--border);
+      font-family: Raleway;
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -180,7 +205,7 @@
   <h1>T Karthikeyan</h1>
   <div>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a class="active" href="about.html">About</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -188,27 +213,28 @@
 
 <section class="hero">
   <div>
-    <h2>Building ideas into reality.</h2>
+    <h2>Turning ideas into real-world tech.</h2>
     <p>
-      I’m a developer focused on building clean, modern and functional digital products.
-      From websites to ESP32 systems, I love working on things that actually solve problems.
+      I’m a developer who loves building modern interfaces, powerful systems,
+      and creative solutions. From web apps to embedded projects, I focus on
+      clarity, performance, and real-world usefulness.
     </p>
   </div>
   <img src="https://raw.githubusercontent.com/Kalakkal123/PORTFOLIO/refs/heads/main/file_00000000ab7c72069271469ca3aa9c04.png">
 </section>
 
-<section class="grid">
-  <div class="card">
+<section class="info">
+  <div class="info-card">
     <h3>Frontend</h3>
-    <p>Modern UI, animations, responsive layouts and clean UX.</p>
+    <p>Modern UI design, responsive layouts, animations and UX-focused development.</p>
   </div>
-  <div class="card">
+  <div class="info-card">
     <h3>Backend & Logic</h3>
-    <p>Firebase, APIs, real-time systems and automation logic.</p>
+    <p>APIs, Firebase, automation logic and performance-optimized systems.</p>
   </div>
-  <div class="card">
+  <div class="info-card">
     <h3>Embedded Systems</h3>
-    <p>ESP32, sensors, automation and hardware integration.</p>
+    <p>ESP32, IoT, sensors, automation and hardware integration.</p>
   </div>
 </section>
 
@@ -223,12 +249,12 @@
   </div>
   <div class="stat">
     <h2>10+</h2>
-    <p>Apps & Tools</p>
+    <p>Tools & Apps</p>
   </div>
 </section>
 
 <section class="cta">
-  <h2>Want to see what I’ve built?</h2>
+  <h2>Want to explore my work?</h2>
   <a href="projects.html">View Projects</a>
 </section>
 
