@@ -5,28 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>T Karthikeyan | Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Fonts (10+) -->
+  <link href="https://fonts.googleapis.com/css2?
+  family=Inter:wght@300;400;600&
+  family=Poppins:wght@600;700&
+  family=Space+Grotesk:wght@600&
+  family=Playfair+Display:wght@600&
+  family=Manrope:wght@600&
+  family=Outfit:wght@500;700&
+  family=Montserrat:wght@500;600&
+  family=DM+Sans:wght@500&
+  family=Raleway:wght@500&
+  family=JetBrains+Mono:wght@500
+  &display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f1a;
-      --card: #12172a;
-      --text: #e5e7eb;
-      --muted: #9aa4b2;
+      --bg: #070b16;
+      --card: #0f1629;
       --accent: #7c7cff;
+      --accent2: #4ee1ff;
+      --text: #e8eaf0;
+      --muted: #9aa4b2;
       --border: rgba(255,255,255,0.08);
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
       font-family: Inter, sans-serif;
-      background: radial-gradient(circle at top, #121b33, #05070d);
+      background: radial-gradient(circle at top, #101933, #05070d);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     /* NAV */
@@ -34,26 +48,26 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 10%;
+      padding: 22px 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10,12,20,0.75);
+      background: rgba(10,12,20,0.7);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
 
     nav h1 {
-      font-family: Poppins;
-      font-size: 1.2rem;
+      font-family: "Playfair Display";
+      font-size: 1.4rem;
     }
 
     nav a {
+      font-family: Montserrat;
       color: var(--muted);
       text-decoration: none;
       margin-left: 24px;
-      font-size: 0.95rem;
       transition: 0.3s;
     }
 
@@ -64,130 +78,134 @@
 
     /* HERO */
     .hero {
-      padding: 170px 10% 120px;
+      min-height: 100vh;
+      padding: 160px 10% 80px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 80px;
       align-items: center;
     }
 
     .hero h1 {
-      font-family: Poppins;
-      font-size: clamp(2.5rem, 5vw, 3.3rem);
+      font-family: Space Grotesk;
+      font-size: clamp(3rem, 5vw, 4rem);
       line-height: 1.1;
-      margin-bottom: 18px;
     }
 
     .hero h1 span {
-      background: linear-gradient(90deg, #7c7cff, #4ee1ff);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      color: var(--muted);
+      margin: 25px 0;
       max-width: 520px;
+      color: var(--muted);
+      font-size: 1.05rem;
       line-height: 1.7;
-      margin-bottom: 30px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 14px;
+      gap: 16px;
     }
 
     .btn {
-      padding: 13px 30px;
-      border-radius: 30px;
+      padding: 14px 34px;
+      border-radius: 40px;
       font-weight: 600;
+      font-family: Montserrat;
       text-decoration: none;
-      transition: 0.25s;
+      transition: 0.3s;
     }
 
     .btn-primary {
-      background: linear-gradient(90deg, #7c7cff, #4ee1ff);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       color: #000;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(124,124,255,0.4);
+      box-shadow: 0 10px 35px rgba(124,124,255,0.5);
     }
 
     .btn-outline {
       border: 1px solid var(--border);
-      color: var(--text);
+      color: white;
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
     }
 
     .hero-img img {
-      width: 260px;
+      width: 300px;
       border-radius: 50%;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 60px rgba(124,124,255,0.25);
+      box-shadow: 0 0 90px rgba(124,124,255,0.4);
       animation: float 6s ease-in-out infinite;
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
       100% { transform: translateY(0); }
     }
 
     /* SKILLS */
     .skills {
-      padding: 90px 10%;
+      padding: 100px 10%;
       text-align: center;
     }
 
     .skills h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
+      font-family: Poppins;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
     }
 
     .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
     }
 
     .skills-grid span {
-      padding: 10px 22px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.06);
+      padding: 14px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #111a30, #0a0f1f);
       border: 1px solid var(--border);
-      transition: 0.25s;
-      cursor: default;
+      font-family: Manrope;
+      transition: 0.3s;
     }
 
     .skills-grid span:hover {
-      transform: translateY(-4px);
-      background: rgba(124,124,255,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(124,124,255,0.3);
     }
 
     /* ABOUT */
     .about {
+      padding: 120px 10%;
       text-align: center;
-      padding: 100px 10%;
     }
 
     .about p {
-      max-width: 720px;
+      max-width: 760px;
       margin: auto;
+      font-family: DM Sans;
+      font-size: 1.1rem;
+      line-height: 1.8;
       color: var(--muted);
-      line-height: 1.7;
     }
 
     /* FOOTER */
     footer {
+      padding: 50px;
       text-align: center;
-      padding: 40px;
-      border-top: 1px solid var(--border);
+      font-family: Raleway;
       color: var(--muted);
+      border-top: 1px solid var(--border);
     }
 
     @media(max-width: 900px) {
@@ -195,7 +213,6 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
-
       .hero-buttons {
         justify-content: center;
       }
@@ -217,11 +234,12 @@
 
 <section class="hero">
   <div>
-    <h1>Building <span>clean, modern</span><br>digital experiences.</h1>
+    <h1>Building <span>digital experiences</span><br>that actually matter.</h1>
     <p>
-      I create web apps, embedded systems, and interactive projects that blend
-      design, performance, and real-world logic.
+      I design and develop modern websites, embedded systems, and creative tech
+      projects with performance and clarity in mind.
     </p>
+
     <div class="hero-buttons">
       <a href="about.html" class="btn btn-primary">About Me</a>
       <a href="projects.html" class="btn btn-outline">View Projects</a>
@@ -234,7 +252,7 @@
 </section>
 
 <section class="skills">
-  <h2>Skills</h2>
+  <h2>My Skillset</h2>
   <div class="skills-grid">
     <span>HTML</span>
     <span>CSS</span>
@@ -251,9 +269,9 @@
 
 <section class="about">
   <p>
-    I’m passionate about creating meaningful digital experiences — whether it’s
-    a clean web interface, a real-time system, or an experimental project that
-    pushes creativity forward.
+    I’m passionate about building clean, scalable, and visually appealing
+    digital products. Whether it's a web app, embedded system, or experimental
+    project — I focus on performance, clarity, and creativity.
   </p>
 </section>
 
