@@ -17,7 +17,10 @@
       --border: rgba(255,255,255,0.08);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -35,7 +38,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10,12,20,0.7);
+      background: rgba(10,12,20,0.75);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
@@ -51,6 +54,7 @@
       text-decoration: none;
       margin-left: 24px;
       font-size: 0.95rem;
+      transition: 0.3s;
     }
 
     nav a:hover,
@@ -60,7 +64,7 @@
 
     /* HERO */
     .hero {
-      padding: 160px 10% 120px;
+      padding: 170px 10% 120px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
@@ -69,9 +73,15 @@
 
     .hero h1 {
       font-family: Poppins;
-      font-size: clamp(2.5rem, 5vw, 3.2rem);
-      margin-bottom: 18px;
+      font-size: clamp(2.5rem, 5vw, 3.3rem);
       line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #7c7cff, #4ee1ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
@@ -100,7 +110,8 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(124,124,255,0.4);
     }
 
     .btn-outline {
@@ -109,7 +120,7 @@
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
     }
 
     .hero-img img {
@@ -117,11 +128,18 @@
       border-radius: 50%;
       border: 1px solid var(--border);
       box-shadow: 0 0 60px rgba(124,124,255,0.25);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
     /* SKILLS */
     .skills {
-      padding: 80px 10%;
+      padding: 90px 10%;
       text-align: center;
     }
 
@@ -143,21 +161,22 @@
       background: rgba(255,255,255,0.06);
       border: 1px solid var(--border);
       transition: 0.25s;
+      cursor: default;
     }
 
     .skills-grid span:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.1);
+      transform: translateY(-4px);
+      background: rgba(124,124,255,0.15);
     }
 
     /* ABOUT */
     .about {
       text-align: center;
-      padding: 90px 10%;
+      padding: 100px 10%;
     }
 
     .about p {
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
       color: var(--muted);
       line-height: 1.7;
@@ -198,7 +217,7 @@
 
 <section class="hero">
   <div>
-    <h1>Building clean, modern digital experiences.</h1>
+    <h1>Building <span>clean, modern</span><br>digital experiences.</h1>
     <p>
       I create web apps, embedded systems, and interactive projects that blend
       design, performance, and real-world logic.
