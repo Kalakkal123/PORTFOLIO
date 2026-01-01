@@ -1,45 +1,42 @@
-// ================================
-// THEME.JS — Dark/Light Mode Toggle
-// ================================
+// =====================================================
+// THEME.JS — Advanced Theme Controller
+// Author: T Karthikeyan
+// =====================================================
 
-const themeBtn = document.getElementById("themeToggle");
+const themeToggle = document.getElementById("themeToggle");
+const root = document.documentElement;
 
-themeBtn?.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
-  const isLight = document.body.classList.contains("light-mode");
-  localStorage.setItem("theme", isLight ? "light" : "dark");
-  themeBtn.textContent = isLight ? "🌞" : "🌓";
+// -----------------------------------
+// INITIAL THEME LOAD
+// -----------------------------------
+(function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+  applyTheme(theme);
+})();
+
+// -----------------------------------
+// TOGGLE CLICK
+// -----------------------------------
+themeToggle?.addEventListener("click", () => {
+  const current = root.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
 });
 
-// --- Remember Theme Preference ---
-document.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.getItem("theme");
-  if (saved === "light") {
-    document.body.classList.add("light-mode");
-    themeBtn.textContent = "🌞";
+// -----------------------------------
+// APPLY THEME
+// -----------------------------------
+function applyTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+
+  // Icon swap
+  if (themeToggle) {
+    themeToggle.textContent = theme === "dark" ? "🌙" : "☀️";
+    themeToggle.classList.add("spin");
+    setTimeout(() => themeToggle.classList.remove("spin"), 300);
   }
-});
-
-// --- Light Mode Styles Override ---
-const style = document.createElement("style");
-style.textContent = `
-body.light-mode {
-  background: #f8f9fb;
-  color: #0b0b0c;
 }
-body.light-mode .navbar {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-}
-body.light-mode .nav-links a { color: #333; }
-body.light-mode .nav-links a:hover, body.light-mode .nav-links a.active { color: #9b59ff; }
-body.light-mode .btn {
-  border-color: #9b59ff;
-  color: #9b59ff;
-}
-body.light-mode .btn:hover {
-  background: #9b59ff;
-  color: #fff;
-}
-`;
-document.head.appendChild(style);
